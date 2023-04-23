@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Buddy Money</string>
+    <string name="title_activity_main">Buddy Money</string>
+    <string name="package_name">com.buddy.money.cash.india.loan.store.buddy.go</string>
+    <string name="custom_url_scheme">com.buddy.money.cash.india.loan.store.buddy.go</string>
+</resources>
