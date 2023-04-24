@@ -5,7 +5,9 @@ import store from "./store";
 import './style/base.css'
 import Vant from 'vant';
 import 'vant/lib/index.css';
+import MyCom from './components/index'
 Vue.use(Vant);
+Vue.use(MyCom)
 Vue.config.productionTip = false;
 new Vue({
     router,

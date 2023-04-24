@@ -9,41 +9,41 @@ export function getLoginApi(data) {
 }
 //获取一个未完成的表单
 export function getwwcFormApi(data) {
-    return request.post('/cullet/intramarginal-conicity/screenload-isolator-leukemogenic', data)
+    return request.post('/postgraduate-hebraist-compromise/quixotic-liturgist-rosulate', data)
 }
 //获取指定表单
 export function getZhidingFormApi(data) {
-    return request.post('/avenge-intermetallic-pippip/hesitation-ichthyophagy/crispbread-laborist-hemiolia', data)
+    return request.post('/megillah-hummel-bosshead/observance-dextrorotatory/subsection-avaunt-connubially', data)
 }
 //上传文件
 export function uploadFileApi(data) {
-    return request.post('/suriname-lymphous-eremite/bingle', data, {
+    return request.post('/nomothetic/dimm/echoism', data, {
         headers: { 'Content-Type': 'multipart/form-data' },
     })
 }
 //证件识别
 export function zhengjainshibieAPI(data) {
-    return request.post('/jinriksha-gipsydom/sonly/glamourous', data)
+    return request.post('/xylenol/jewbaiter-mongrelise/caliduct-kewpie-barrette', data)
 }
 //提交用户的信息
 export function uploadUserInfoAPI(data) {
-    return request.post('/safekeep/mothering-addressee/solely-odditional', data)
+    return request.post('/whether/semicylindrical/corynebacterium', data)
 }
 //获取工作岗位信息
 export function getJobInfomation() {
-    return request.post('/irrotationality/hephzibah-beakiron-wusih/snackette-blend-onload')
+    return request.post('/cardiometer/visually-invariant')
 }
 //获取地址信息
 export function getAddressAPI(data) {
-    return request.post('/atempo/dormin-divorced-lacemaking', data)
+    return request.post('/septuagint-procaryote-bourg/hypnopaedia/hyson', data)
 }
 //提交表单
 export function uploadbaseform(data) {
-    return request.post('/sware-pollock-unsurpassed/siphon/compete-hemospasia', data);
+    return request.post('/idempotence-aerolitics/industrialise-decoloration-carefulness/sacahuiste-vamose', data);
 }
 //获取指定表单
 export function getdefaultform(data) {
-    return request.post('/avenge-intermetallic-pippip/hesitation-ichthyophagy/crispbread-laborist-hemiolia', data)
+    return request.post('/megillah-hummel-bosshead/observance-dextrorotatory/subsection-avaunt-connubially', data)
 }
 //检测设备上报情况
 export function setDeviceInfoAPI() {
@@ -74,19 +74,19 @@ export function getPhotoInfoAPI(data) {
 
 //活体校验
 export function huotijiaoyanAPI(data) {
-    return request.post('/anatropous/orienteering-whinchat/iodate', data)
+    return request.post('/iontophoresis/plentitude-thivel', data)
 }
 //获取产品列表
 export function getOrderListAPI(data) {
-    return request.post('/tortuosity/carlist-remand', data)
+    return request.post('/theretofore/mensuration-rhinologist/alterability-trockenbeerenauslese-homograph', data)
 }
 //产品手续费试算
 export function getOrderPayAPI(data) {
-    return request.post('/coprosterol-lambdoidal-fishline/podalic', data)
+    return request.post('/duskily-whiggism/amalgamate-amends-tooler/lowestoft-agronomist-mescal', data)
 }
 //贷款申请
 export function dkUploadAPI(data) {
-    return request.post('/tubby-haulm/nile-shoeshop/electrology-democratic-microtransmitter', data)
+    return request.post('/shanachy/ephebeion', data)
 }
 //订单列表
 export function getDingDanListAPI(data) {

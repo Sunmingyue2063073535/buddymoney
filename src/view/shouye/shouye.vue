@@ -15,10 +15,19 @@
     </div>
 </template>
 <script>
+import { Toast } from "vant";
 export default {
     methods: {
         //去贷款
-        doApply() { }
+        doApply() {
+            if (this.$store.state.isLogin) {
+                this.$router.push('/beforeys')
+            } else {
+                this.$router.push('/login')
+                Toast('please log in first')
+            }
+
+        }
     }
 }
 </script>
