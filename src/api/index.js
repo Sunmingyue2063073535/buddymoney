@@ -90,11 +90,11 @@ export function dkUploadAPI(data) {
 }
 //订单列表
 export function getDingDanListAPI(data) {
-    return request.post('/interlace-semibasement-orad/apetalous/rodriguan-synchroscope-inhabited', data)
+    return request.post('/hypercryalgesia-procuress/selenocentric-heterosis', data)
 }
 //订单还款计划
 export function dingdanhuankuanAPI(data) {
-    return request.post('/succedaneum/tendentious/scalprum', data)
+    return request.post('/binche-semiarid/axone/preoral', data)
 }
 //获取订单还款方式
 export function getOrderPayType(data) {

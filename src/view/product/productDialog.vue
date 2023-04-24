@@ -100,25 +100,25 @@ export default {
             line-height: (46/@a);
 
             &:nth-child(odd) {
-                background-color: #faeaec;
+                background-color: #b9abd5;
             }
 
             &:nth-child(even) {
-                background-color: #ffe7e5;
+                background-color: #9d7ce0;
             }
 
             .left {
                 font-size: (13/@a);
                 font-family: Alibaba PuHuiTi;
                 font-weight: bold;
-                color: #797979;
+                color: #fff;
             }
 
             .right {
                 font-size: (13/@a);
                 font-family: Alibaba PuHuiTi;
                 font-weight: 500;
-                color: #797979;
+                color: #fff;
             }
         }
     }
@@ -127,7 +127,7 @@ export default {
         width: (200/@a);
         height: (50/@a);
         margin-top: (20/@a);
-        background-color: #e1a08b;
+        background: linear-gradient(180deg, #8B70C0 0%, #1E005A 100%);
         text-align: center;
         line-height: (50/@a);
         margin-left: (50/@a);

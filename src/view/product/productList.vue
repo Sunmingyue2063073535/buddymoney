@@ -3,7 +3,7 @@
         <FormTopDesc desc="Product List"></FormTopDesc>
         <div class="top">
             <div class="top-desc">My Loan History</div>
-            <div class="top-view">View</div>
+            <div class="top-view" @click="$router.push('/loan')">View</div>
         </div>
         <!-- 产品列表 -->
         <ul class="list">
