@@ -21,12 +21,17 @@ Refresh successfully">
                         <li>Loan Period (Days)</li>
                         <li>Loan Date</li>
                         <li>Loan Note Number</li>
+                        <li v-if="item.status === 'PASS' || item.status === 'LOAN_SUCCESS'">Ask Questions</li>
                     </ul>
                     <ul class="box-r">
                         <li>₹ {{ item.amount }}</li>
                         <li>{{ item.term }} {{ item.termUnit }}</li>
                         <li>{{ new Date(item.created).toLocaleDateString() }}</li>
                         <li>{{ item.id }}</li>
+                        <li class="li-img" v-if="item.status === 'PASS' || item.status === 'LOAN_SUCCESS'"
+                            @click="$router.push('/kefuList')">
+                            <img src="../../assets/app-kefu.png" alt="">
+                        </li>
                     </ul>
                 </div>
                 <div class="btn" @click="doStatusBtn(item)" :style="{ 'background-color': item.statusColor }">{{ item.status
@@ -167,6 +172,8 @@ export default {
                     margin-bottom: (13/@a);
                     margin-left: (18/@a);
                 }
+
+
             }
 
             .box-r {
@@ -180,6 +187,16 @@ export default {
                     color: #252525;
                     margin-bottom: (13/@a);
                     margin-right: (17/@a);
+                }
+
+                .li-img {
+                    width: (26/@a);
+                    height: (28/@a);
+                    margin-left: (120/@a);
+
+                    img {
+                        width: 100%;
+                    }
                 }
             }
         }

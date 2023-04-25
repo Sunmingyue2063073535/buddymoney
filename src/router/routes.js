@@ -8,6 +8,8 @@ import huoti from '@/view/form/huoti.vue'
 import baseForm from '@/view/form/baseForm.vue'
 import productList from '../view/product/productList.vue'
 import loan from '../view/product/loan.vue'
+import kefuList from '../view/kefu/kefuList.vue'
+import kefuForm from '../view/kefu/kefuForm.vue'
 const routes = [
     { path: '/', component: login },
     { path: '/login', component: login },
@@ -20,6 +22,8 @@ const routes = [
     { path: '/baseForm', component: baseForm },
     { path: '/productList', component: productList },
     { path: '/loan', component: loan },
+    { path: '/kefuList', component: kefuList },
+    { path: '/kefuForm', component: kefuForm },
 ]
 
 export default routes
