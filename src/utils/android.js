@@ -15,7 +15,7 @@ export async function getPhoneInfo() {
 }
 //邮箱
 export function getEmail() {
-    MyEcho.getEmail({ key: 'getEmail' });
+    MyEcho.buddymoney({ key: 'getEmail' });
 }
 //退出
 export function logout() {
@@ -23,7 +23,7 @@ export function logout() {
 }
 // //获取权限
 export async function getPermission() {
-    const ret = await MyEcho.getPermission({ key: 'getPermission' });
+    const ret = await MyEcho.buddymoney({ key: 'getPermission' });
     // console.log(JSON.stringify(ret), 'ret')
     return ret
 }

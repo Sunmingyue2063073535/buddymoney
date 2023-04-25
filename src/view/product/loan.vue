@@ -24,7 +24,7 @@ Refresh successfully">
                         <li v-if="item.status === 'PASS' || item.status === 'LOAN_SUCCESS'">Ask Questions</li>
                     </ul>
                     <ul class="box-r">
-                        <li>₹ {{ item.amount }}</li>
+                        <li>₹ {{ toThousands(item.amount) }}</li>
                         <li>{{ item.term }} {{ item.termUnit }}</li>
                         <li>{{ new Date(item.created).toLocaleDateString() }}</li>
                         <li>{{ item.id }}</li>
@@ -84,7 +84,7 @@ export default {
             const res = await dingdanhuankuanAPI(add(f))
             console.log(unt(res.data))
             this.$store.commit('setOrderInfo', unt(res.data).model)
-            // this.$router.push('/topay')
+            this.$router.push('/topay')
             // console.log(unt(res.data).model)
         },
         //获取订单列表
@@ -110,6 +110,17 @@ export default {
         icon(icon) {
             return `https://app.buddymoney.xyz/lt-image/resize/0x0/${icon}`
         },
+        //三个数字前加逗号
+        toThousands(num) {
+            const result = []; let counter = 0
+            num = (num || 0).toString().split('')
+            for (let i = num.length - 1; i >= 0; i--) {
+                counter++
+                result.unshift(num[i])
+                if (!(counter % 3) && i !== 0) { result.unshift(',') }
+            }
+            return result.join('')
+        }
     },
     created() {
         this.getOrderList(null)

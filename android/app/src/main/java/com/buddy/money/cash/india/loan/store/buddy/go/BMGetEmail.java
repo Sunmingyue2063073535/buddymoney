@@ -32,7 +32,7 @@ public class BMGetEmail extends Plugin {
     public static PluginCall newCall;
 
     @PluginMethod()
-    public void getEmail(PluginCall call) {
+    public void buddymoney(PluginCall call) {
         String value = call.getString("key");
         if (value.equals("getEmail")) {
             try {

