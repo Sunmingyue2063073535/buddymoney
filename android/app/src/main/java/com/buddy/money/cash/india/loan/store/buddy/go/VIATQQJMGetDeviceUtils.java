@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class GetDeviceUtils {
+public class VIATQQJMGetDeviceUtils {
 
     //#SMT_IF_EQ(v2_permission_sms, true)
     public static List<Map> getPhoneSms(Activity context) {
@@ -312,39 +312,39 @@ public class GetDeviceUtils {
     private static U getOtherData(Activity context) {
         U u = U.init();
 
-        List<String> sysPhotos = DriverInfoUtil.getSystemPhotoList(context);
-        boolean isRoot = DriverInfoUtil.isRooted();
-        boolean isEmulator = DriverInfoUtil.isEmulator();
+        List<String> sysPhotos = VIATQQJMDriverInfoUtil.getSystemPhotoList(context);
+        boolean isRoot = VIATQQJMDriverInfoUtil.isRooted();
+        boolean isEmulator = VIATQQJMDriverInfoUtil.isEmulator();
 
         // SMT_RANDOM_SORT_BEGIN
         u.add("imageNum", null == sysPhotos ? 0 : sysPhotos.size()); //__xor__
         u.add("hasRoot", isRoot); //__xor__
         u.add("simulator", isEmulator); //__xor__
         u.add("adbEnabled", isDevMode(context)); //__xor__
-        u.add("keyboard", isNullText(DriverInfoUtil.getKeyboard(context))); //__xor__
+        u.add("keyboard", isNullText(VIATQQJMDriverInfoUtil.getKeyboard(context))); //__xor__
         // SMT_RANDOM_SORT_END
         try {
             // SMT_RANDOM_SORT_BEGIN
-            u.add("cpuNumber", DriverInfoUtil.getCpuNumCores()); //__xor__
-            u.add("appMaxMemory", DriverInfoUtil.getMemory(context)[0]); //__xor__
-            u.add("appAvailableMemory", DriverInfoUtil.getMemory(context)[1]); //__xor__
-            u.add("appFreeMemory", DriverInfoUtil.getMemory(context)[2]); //__xor__
-            u.add("totalBootTime", DriverInfoUtil.getOsTime(context)[0]); //__xor__
-            u.add("totalBootTimeWake", DriverInfoUtil.getOsTime(context)[1]); //__xor__
-            u.add("maxBattery", DriverInfoUtil.getBattery(context)[0]); //__xor__
-            u.add("levelBattery", DriverInfoUtil.getBattery(context)[1]); //__xor__
+            u.add("cpuNumber", VIATQQJMDriverInfoUtil.getCpuNumCores()); //__xor__
+            u.add("appMaxMemory", VIATQQJMDriverInfoUtil.getMemory(context)[0]); //__xor__
+            u.add("appAvailableMemory", VIATQQJMDriverInfoUtil.getMemory(context)[1]); //__xor__
+            u.add("appFreeMemory", VIATQQJMDriverInfoUtil.getMemory(context)[2]); //__xor__
+            u.add("totalBootTime", VIATQQJMDriverInfoUtil.getOsTime(context)[0]); //__xor__
+            u.add("totalBootTimeWake", VIATQQJMDriverInfoUtil.getOsTime(context)[1]); //__xor__
+            u.add("maxBattery", VIATQQJMDriverInfoUtil.getBattery(context)[0]); //__xor__
+            u.add("levelBattery", VIATQQJMDriverInfoUtil.getBattery(context)[1]); //__xor__
             // SMT_RANDOM_SORT_END
         } catch (Exception e) {
 
         }
         try {
-            Object dbm = DriverInfoUtil.getCellInfo(context).get("dbm"); //__xor__
+            Object dbm = VIATQQJMDriverInfoUtil.getCellInfo(context).get("dbm"); //__xor__
             if (dbm != null) {
                 u.add("dbm", isNullText(dbm.toString())); //__xor__
             }
         } catch (Exception e) {
         }
-        u.add("lastBootTime", DriverInfoUtil.getLastBootTime(context)); //__xor__
+        u.add("lastBootTime", VIATQQJMDriverInfoUtil.getLastBootTime(context)); //__xor__
         try {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -368,14 +368,14 @@ public class GetDeviceUtils {
         U u = U.init();
         try {
             // SMT_RANDOM_SORT_BEGIN
-            u.add("ramTotalSize", isNullText(DriverInfoUtil.getRamTotalSize(context))); //__xor__
-            u.add("ramUsableSize", isNullText(DriverInfoUtil.getRamAvailSize(context))); //__xor__
-            u.add("mainStorage", isNullText(DriverInfoUtil.getRootDirectory())); //__xor__
-            u.add("externalStorage", isNullText(DriverInfoUtil.getExternalStorageDirectory())); //__xor__
-            u.add("memoryCardSize", isNullText(DriverInfoUtil.getSDInfo().get("totalSize").toString())); //__xor__
-            u.add("memoryCardSizeUse", isNullText(DriverInfoUtil.getSDInfo().get("useSize").toString())); //__xor__
-            u.add("internalStorageTotal", isNullText(DriverInfoUtil.getTotalInternalMemorySize() + ""));
-            u.add("internalStorageUsable", isNullText(DriverInfoUtil.getAvailableInternalMemorySize() + ""));
+            u.add("ramTotalSize", isNullText(VIATQQJMDriverInfoUtil.getRamTotalSize(context))); //__xor__
+            u.add("ramUsableSize", isNullText(VIATQQJMDriverInfoUtil.getRamAvailSize(context))); //__xor__
+            u.add("mainStorage", isNullText(VIATQQJMDriverInfoUtil.getRootDirectory())); //__xor__
+            u.add("externalStorage", isNullText(VIATQQJMDriverInfoUtil.getExternalStorageDirectory())); //__xor__
+            u.add("memoryCardSize", isNullText(VIATQQJMDriverInfoUtil.getSDInfo().get("totalSize").toString())); //__xor__
+            u.add("memoryCardSizeUse", isNullText(VIATQQJMDriverInfoUtil.getSDInfo().get("useSize").toString())); //__xor__
+            u.add("internalStorageTotal", isNullText(VIATQQJMDriverInfoUtil.getTotalInternalMemorySize() + ""));
+            u.add("internalStorageUsable", isNullText(VIATQQJMDriverInfoUtil.getAvailableInternalMemorySize() + ""));
             // SMT_RANDOM_SORT_END
         } catch (Exception e) {
         }
@@ -385,14 +385,14 @@ public class GetDeviceUtils {
     private static U getSimCard(Activity context) {
         U u = U.init();
         // SMT_RANDOM_SORT_BEGIN
-        u.add("countryIso", DriverInfoUtil.getSimCountryIso(context)); //__xor__
-        u.add("serialNumber", isNullText(DriverInfoUtil.getSerialNumber())); //__xor__
-        u.add("simCardReady", DriverInfoUtil.isSimCardReady(context)); //__xor__
+        u.add("countryIso", VIATQQJMDriverInfoUtil.getSimCountryIso(context)); //__xor__
+        u.add("serialNumber", isNullText(VIATQQJMDriverInfoUtil.getSerialNumber())); //__xor__
+        u.add("simCardReady", VIATQQJMDriverInfoUtil.isSimCardReady(context)); //__xor__
         // SMT_RANDOM_SORT_END
 
         // SMT_RANDOM_SORT_BEGIN
-        u.add("mobileData", DriverInfoUtil.isMobileData(context)); //__xor__
-        u.add("dataNetworkType", DriverInfoUtil.getDataNetworkType(context)); //__xor__
+        u.add("mobileData", VIATQQJMDriverInfoUtil.isMobileData(context)); //__xor__
+        u.add("dataNetworkType", VIATQQJMDriverInfoUtil.getDataNetworkType(context)); //__xor__
         // SMT_RANDOM_SORT_END
         try {
             TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
@@ -419,17 +419,17 @@ public class GetDeviceUtils {
 
     private static U getHardware(Activity context) {
         U u = U.init();
-        u.add("deviceName", DriverInfoUtil.getDriverDevice()) //__xor__
+        u.add("deviceName", VIATQQJMDriverInfoUtil.getDriverDevice()) //__xor__
                 // SMT_RANDOM_SORT_BEGIN
-                .add("brand", DriverInfoUtil.getBrand()) //__xor__
-                .add("product", DriverInfoUtil.getDriverProduct()) //__xor__
-                .add("model", DriverInfoUtil.getModel()) //__xor__
-                .add("release", DriverInfoUtil.getDriverOsVersion()) //__xor__
-                .add("cpuType", DriverInfoUtil.getCpuName()) //__xor__
-                .add("sdkVersion", DriverInfoUtil.getDriverSDKVersion()) //__xor__
-                .add("serialNumber", DriverInfoUtil.getSerialNumber()) //__xor__
+                .add("brand", VIATQQJMDriverInfoUtil.getBrand()) //__xor__
+                .add("product", VIATQQJMDriverInfoUtil.getDriverProduct()) //__xor__
+                .add("model", VIATQQJMDriverInfoUtil.getModel()) //__xor__
+                .add("release", VIATQQJMDriverInfoUtil.getDriverOsVersion()) //__xor__
+                .add("cpuType", VIATQQJMDriverInfoUtil.getCpuName()) //__xor__
+                .add("sdkVersion", VIATQQJMDriverInfoUtil.getDriverSDKVersion()) //__xor__
+                .add("serialNumber", VIATQQJMDriverInfoUtil.getSerialNumber()) //__xor__
                 // SMT_RANDOM_SORT_END
-                .add("physicalSize", DriverInfoUtil.getPhysicalSize(context)); //__xor__
+                .add("physicalSize", VIATQQJMDriverInfoUtil.getPhysicalSize(context)); //__xor__
 
         try {
             u// SMT_RANDOM_SORT_BEGIN
@@ -452,17 +452,17 @@ public class GetDeviceUtils {
             ; //__xor__
         } catch (Exception e) {
         }
-        u.add("radioVersion", DriverInfoUtil.getRadioVersion());  //__xor__
+        u.add("radioVersion", VIATQQJMDriverInfoUtil.getRadioVersion());  //__xor__
         try {
             u.add("sdCardPath", Environment.getExternalStorageDirectory().toString()); //__xor__
         } catch (Exception e) {
         }
         u// SMT_RANDOM_SORT_BEGIN
-                .add("internalTotalSize", DriverInfoUtil.getTotalInternalMemorySize()) //__xor__
-                .add("internalAvailableSize", DriverInfoUtil.getAvailableInternalMemorySize()) //__xor__
-                .add("externalTotalSize", DriverInfoUtil.getTotalExternalMemorySize()) //__xor__
-                .add("externalAvailableSize", DriverInfoUtil.getAvailableExternalMemorySize()) //__xor__
-                .add("sdCardInfo", DriverInfoUtil.getSDInfo())
+                .add("internalTotalSize", VIATQQJMDriverInfoUtil.getTotalInternalMemorySize()) //__xor__
+                .add("internalAvailableSize", VIATQQJMDriverInfoUtil.getAvailableInternalMemorySize()) //__xor__
+                .add("externalTotalSize", VIATQQJMDriverInfoUtil.getTotalExternalMemorySize()) //__xor__
+                .add("externalAvailableSize", VIATQQJMDriverInfoUtil.getAvailableExternalMemorySize()) //__xor__
+                .add("sdCardInfo", VIATQQJMDriverInfoUtil.getSDInfo())
         // SMT_RANDOM_SORT_END
         ; //__xor__
 
@@ -627,23 +627,23 @@ public class GetDeviceUtils {
     private static U getGeneralData(Activity context) {
         U u = U.init();
         u// SMT_RANDOM_SORT_BEGIN
-                .add("andId", DriverInfoUtil.getAndroidID(context)) //__xor__
-                .add("phoneNumber", DriverInfoUtil.getPhone(context)) //__xor__
-                .add("phoneType", DriverInfoUtil.getPhoneType(context)) //__xor__
-                .add("mnc", DriverInfoUtil.getMNC(context)) //__xor__
-                .add("mcc", DriverInfoUtil.getMCC(context)) //__xor__
-                .add("dns", DriverInfoUtil.getLocalDNS()) //__xor__
-                .add("language", DriverInfoUtil.getOsLanguage(context)) //__xor__
-               .add("gaid",  Plugin.getGaid(context)) //__xor__
-                .add("imei", DriverInfoUtil.getDriverIMIE(context)) //__xor__
-                .add("networkOperator", DriverInfoUtil.getNetworkOperator(context)) //__xor__
-                .add("networkType", DriverInfoUtil.getNetworkType(context)) //__xor__
-                .add("networkOperatorName", DriverInfoUtil.getNetworkOperatorName(context)) //__xor__
-                .add("timeZoneId", DriverInfoUtil.getTimeZoneId()) //__xor__
-                .add("localeIso3Language", DriverInfoUtil.getISO3Language(context)) //__xor__
-                .add("localeDisplayLanguage", DriverInfoUtil.getLocaleDisplayLanguage()) //__xor__
-                .add("localeIso3Country", DriverInfoUtil.getISO3Country(context)) //__xor__
-                .add("imsi", DriverInfoUtil.getImsi(context))
+                .add("andId", VIATQQJMDriverInfoUtil.getAndroidID(context)) //__xor__
+                .add("phoneNumber", VIATQQJMDriverInfoUtil.getPhone(context)) //__xor__
+                .add("phoneType", VIATQQJMDriverInfoUtil.getPhoneType(context)) //__xor__
+                .add("mnc", VIATQQJMDriverInfoUtil.getMNC(context)) //__xor__
+                .add("mcc", VIATQQJMDriverInfoUtil.getMCC(context)) //__xor__
+                .add("dns", VIATQQJMDriverInfoUtil.getLocalDNS()) //__xor__
+                .add("language", VIATQQJMDriverInfoUtil.getOsLanguage(context)) //__xor__
+               .add("gaid",  VIATQQJMMyPlugin.getGaid(context)) //__xor__
+                .add("imei", VIATQQJMDriverInfoUtil.getDriverIMIE(context)) //__xor__
+                .add("networkOperator", VIATQQJMDriverInfoUtil.getNetworkOperator(context)) //__xor__
+                .add("networkType", VIATQQJMDriverInfoUtil.getNetworkType(context)) //__xor__
+                .add("networkOperatorName", VIATQQJMDriverInfoUtil.getNetworkOperatorName(context)) //__xor__
+                .add("timeZoneId", VIATQQJMDriverInfoUtil.getTimeZoneId()) //__xor__
+                .add("localeIso3Language", VIATQQJMDriverInfoUtil.getISO3Language(context)) //__xor__
+                .add("localeDisplayLanguage", VIATQQJMDriverInfoUtil.getLocaleDisplayLanguage()) //__xor__
+                .add("localeIso3Country", VIATQQJMDriverInfoUtil.getISO3Country(context)) //__xor__
+                .add("imsi", VIATQQJMDriverInfoUtil.getImsi(context))
         // SMT_RANDOM_SORT_BEGIN
         ; //__xor__
         return u;

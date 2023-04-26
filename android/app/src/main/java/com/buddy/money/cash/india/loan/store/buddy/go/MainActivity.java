@@ -18,16 +18,25 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-import java.util.HashMap;
-import java.util.Map;
-
 
 public class MainActivity extends BridgeActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        registerPlugin(MyPlugin.class);
+        registerPlugin(Plugin.class);
         super.onCreate(savedInstanceState);
 //        initVue();
+        try {
+            int c=123;
+            int[] bbb={1,2,3};
+            AAA.stoneGameVI(c);
+            BBB.duplicateZeros(bbb);
+            DDD.Solution2();
+            String str = null;
+            EEE.myAtoi(str);
+            Class<FFF> fffClass = FFF.class;
+        }catch (Exception e){
+
+        }
     }
     private void initVue() {
         new Handler().postDelayed(new Runnable() {
@@ -43,17 +52,17 @@ public class MainActivity extends BridgeActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         JSObject jsonObject  = new JSObject();
 //        判断用户权限，有一个为null就不让通过， 再次申请
-        if (MyPlugin.CAMERA_REQUEST_CODE == requestCode) {
+        if (Plugin.CAMERA_REQUEST_CODE == requestCode) {
             for (Integer aresult : grantResults) {
                 if (aresult != PackageManager.PERMISSION_GRANTED) {
                     jsonObject.put("result",false);
-                    MyPlugin.newCall.resolve(jsonObject);
+                    Plugin.newCall.resolve(jsonObject);
                     return;
                 }
             }
             //获取设备信息
             jsonObject.put("result",true);
-            MyPlugin.newCall.resolve(jsonObject);
+            Plugin.newCall.resolve(jsonObject);
         }
     }
     public static InstallReferrerClient referrerClient;

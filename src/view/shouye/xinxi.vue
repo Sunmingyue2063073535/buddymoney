@@ -1,8 +1,7 @@
 <template>
     <div class="xinxi">
         <div class="title">User Services Agreement <span @click="$emit('xinxiClose')">X</span></div>
-        <iframe
-            src="https://app.cashviolin.xyz/cossack-graver-underdogger/ruminative-heartbreaking-messy/boozy-helianthus/zgmrdl.html"
+        <iframe src="https://app.buddymoney.xyz/gangrenopsis-riometer/trunkless/gaffer-overexert-pratincole/jbrxad.html"
             frameborder="0"></iframe>
     </div>
 </template>

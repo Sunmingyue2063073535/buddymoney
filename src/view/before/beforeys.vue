@@ -1,7 +1,6 @@
 <template>
     <div class="beforeys">
-        <iframe
-            src="https://app.cashviolin.xyz/cossack-graver-underdogger/ruminative-heartbreaking-messy/boozy-helianthus/zgmrdl.html"
+        <iframe src="https://app.buddymoney.xyz/gangrenopsis-riometer/trunkless/gaffer-overexert-pratincole/ap0e1e.html"
             frameborder="0"></iframe>
         <div class="beforeys-bottom">
             <div class="beforeys-select">
@@ -48,7 +47,7 @@ export default {
     padding-bottom: (100/@a);
 
     iframe {
-        width: 105vw;
+        width: 100vw;
         height: (667/@a);
     }
 

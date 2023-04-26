@@ -4,7 +4,7 @@ import android.app.Application;
 
 import io.branch.referral.Branch;
 
-public class MyApp extends Application
+public class VIATQQJMMyApp extends Application
 {
 
     @Override

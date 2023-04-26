@@ -1,5 +1,8 @@
 <template>
     <div class="login">
+        <div class="login-img">
+            <img src="../../assets/login.png" alt="">
+        </div>
         <div class="otp" @click="getCode" v-if="!isyzm">
             <img src="../../assets/opt.png" alt="">
         </div>
@@ -83,9 +86,17 @@ export default {
 <style lang="less" scoped>
 .login {
     width: 100vw;
-    height: 100vh;
-    background-image: url(../../assets/login.png);
-    background-size: contain;
+    min-height: (667/@a);
+
+    .login-img {
+        width: 100vw;
+        min-height: (667/@a);
+
+        img {
+            width: 100vw;
+            height: (667/@a);
+        }
+    }
 
     .djs {
         position: absolute;

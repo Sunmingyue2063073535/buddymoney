@@ -11,7 +11,6 @@ import android.provider.Settings;
 import androidx.core.app.ActivityCompat;
 
 import com.getcapacitor.JSObject;
-import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
@@ -24,7 +23,7 @@ import java.util.Map;
 
 
 @CapacitorPlugin(name = "VIATQQJM")
-public class MyPlugin extends Plugin {
+public class Plugin extends com.getcapacitor.Plugin {
     public static final int CAMERA_REQUEST_CODE = 564;
 
     public static PluginCall newCall;
