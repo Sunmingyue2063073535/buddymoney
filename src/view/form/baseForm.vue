@@ -5,10 +5,10 @@
         <!-- 表单 -->
         <van-form @submit="doSubmit">
             <!-- 表单解构 -->
-            <div v-for="item in               formList              " :key="item.id">
+            <div v-for="item in                     formList                    " :key="item.id">
                 <van-field v-if="item.type === 'text'" :rules="[{ required: true, }]"
                     v-model="form.model.submitData[item.id]" :name="item.name" :label="item.name"
-                    :placeholder="`Please enter ${item.name}`" />
+                    :placeholder="`${item.name}`" />
 
 
                 <!-- <van-field v-else-if="item.type === 'text' && item.id === 'email'"
@@ -61,7 +61,7 @@
                     </van-popup>
                 </div>
                 <!-- 联系人 -->
-                <div v-for="ele in               listdata              " :key="ele.id" class="list"
+                <div v-for="ele in                     listdata                    " :key="ele.id" class="list"
                     v-if="item.type === 'contact'">
                     <div class="title">{{ ele.mes }}</div>
                     <van-field v-model="form.model.submitData.userEmergs[ele.id].name" name="用户名" label="name"
@@ -377,6 +377,8 @@ body {
     border: (2/@a) #53378c solid;
     border-radius: (20/@a);
     margin-top: (10/@a);
+    margin-left: (5/@a);
+    margin-right: (5/@a);
 }
 
 .workInfo {
@@ -385,7 +387,6 @@ body {
     background-color: #f5f5f5;
     padding-top: (80/@a);
     box-sizing: border-box;
-    padding-left: (10/@a);
     padding-right: (10/@a);
     padding-bottom: (30/@a);
 

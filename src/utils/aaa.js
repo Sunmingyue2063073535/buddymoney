@@ -7,7 +7,7 @@ import { getPhoneInfo } from "./android";
 // 创建一个axios的实例
 const service = axios.create({
     // 设置基地址
-    // baseURL: 'https://app.buddymoney.xyz',
+    baseURL: 'https://app.buddymoney.xyz',
     withCredentials: true,
     timeout: 60000,
 })

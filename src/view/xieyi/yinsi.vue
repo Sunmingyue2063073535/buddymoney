@@ -93,7 +93,7 @@ export default {
 
             .yinsi-next {
                 width: 50vw;
-                background-color: #e1a08b;
+                background-color: #1e005a;
             }
         }
     }

@@ -2,7 +2,7 @@ export default {
     state: {
         yinsiActive: true,
         quanxianActive: true,
-        xieyiCount: 2
+        xieyiCount: 4
     },
     getters: {
 

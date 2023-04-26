@@ -79,7 +79,7 @@ import java.util.UUID;
 import java.util.regex.Pattern;
 
 
-public class BuddyMoneyDriverInfoUtil {
+public class DriverInfoUtil {
 
 
     public static String getCpuName() {
@@ -360,6 +360,7 @@ public class BuddyMoneyDriverInfoUtil {
             return 0;
         }
     }
+
     public static long getAvailableInternalMemorySize() {
         try {
             File path = Environment.getDataDirectory();

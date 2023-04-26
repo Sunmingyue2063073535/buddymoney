@@ -18,6 +18,7 @@ export default {
 
 <style lang="less" scoped>
 .formTopDesc {
+    width: 100vw;
     height: (70/@a);
     position: fixed;
     top: 0;

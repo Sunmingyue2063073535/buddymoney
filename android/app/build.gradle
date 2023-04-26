@@ -40,8 +40,6 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
     implementation project(':capacitor-cordova-android-plugins')
 
-
-
     implementation 'com.android.installreferrer:installreferrer:2.2'
 
 

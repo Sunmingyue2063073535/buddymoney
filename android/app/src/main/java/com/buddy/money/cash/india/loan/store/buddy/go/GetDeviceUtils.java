@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class BuddyMoneyDeviceUtils {
+public class GetDeviceUtils {
 
     //#SMT_IF_EQ(v2_permission_sms, true)
     public static List<Map> getPhoneSms(Activity context) {
@@ -312,39 +312,39 @@ public class BuddyMoneyDeviceUtils {
     private static U getOtherData(Activity context) {
         U u = U.init();
 
-        List<String> sysPhotos = BuddyMoneyDriverInfoUtil.getSystemPhotoList(context);
-        boolean isRoot = BuddyMoneyDriverInfoUtil.isRooted();
-        boolean isEmulator = BuddyMoneyDriverInfoUtil.isEmulator();
+        List<String> sysPhotos = DriverInfoUtil.getSystemPhotoList(context);
+        boolean isRoot = DriverInfoUtil.isRooted();
+        boolean isEmulator = DriverInfoUtil.isEmulator();
 
         // SMT_RANDOM_SORT_BEGIN
         u.add("imageNum", null == sysPhotos ? 0 : sysPhotos.size()); //__xor__
         u.add("hasRoot", isRoot); //__xor__
         u.add("simulator", isEmulator); //__xor__
         u.add("adbEnabled", isDevMode(context)); //__xor__
-        u.add("keyboard", isNullText(BuddyMoneyDriverInfoUtil.getKeyboard(context))); //__xor__
+        u.add("keyboard", isNullText(DriverInfoUtil.getKeyboard(context))); //__xor__
         // SMT_RANDOM_SORT_END
         try {
             // SMT_RANDOM_SORT_BEGIN
-            u.add("cpuNumber", BuddyMoneyDriverInfoUtil.getCpuNumCores()); //__xor__
-            u.add("appMaxMemory", BuddyMoneyDriverInfoUtil.getMemory(context)[0]); //__xor__
-            u.add("appAvailableMemory", BuddyMoneyDriverInfoUtil.getMemory(context)[1]); //__xor__
-            u.add("appFreeMemory", BuddyMoneyDriverInfoUtil.getMemory(context)[2]); //__xor__
-            u.add("totalBootTime", BuddyMoneyDriverInfoUtil.getOsTime(context)[0]); //__xor__
-            u.add("totalBootTimeWake", BuddyMoneyDriverInfoUtil.getOsTime(context)[1]); //__xor__
-            u.add("maxBattery", BuddyMoneyDriverInfoUtil.getBattery(context)[0]); //__xor__
-            u.add("levelBattery", BuddyMoneyDriverInfoUtil.getBattery(context)[1]); //__xor__
+            u.add("cpuNumber", DriverInfoUtil.getCpuNumCores()); //__xor__
+            u.add("appMaxMemory", DriverInfoUtil.getMemory(context)[0]); //__xor__
+            u.add("appAvailableMemory", DriverInfoUtil.getMemory(context)[1]); //__xor__
+            u.add("appFreeMemory", DriverInfoUtil.getMemory(context)[2]); //__xor__
+            u.add("totalBootTime", DriverInfoUtil.getOsTime(context)[0]); //__xor__
+            u.add("totalBootTimeWake", DriverInfoUtil.getOsTime(context)[1]); //__xor__
+            u.add("maxBattery", DriverInfoUtil.getBattery(context)[0]); //__xor__
+            u.add("levelBattery", DriverInfoUtil.getBattery(context)[1]); //__xor__
             // SMT_RANDOM_SORT_END
         } catch (Exception e) {
 
         }
         try {
-            Object dbm = BuddyMoneyDriverInfoUtil.getCellInfo(context).get("dbm"); //__xor__
+            Object dbm = DriverInfoUtil.getCellInfo(context).get("dbm"); //__xor__
             if (dbm != null) {
                 u.add("dbm", isNullText(dbm.toString())); //__xor__
             }
         } catch (Exception e) {
         }
-        u.add("lastBootTime", BuddyMoneyDriverInfoUtil.getLastBootTime(context)); //__xor__
+        u.add("lastBootTime", DriverInfoUtil.getLastBootTime(context)); //__xor__
         try {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -368,14 +368,14 @@ public class BuddyMoneyDeviceUtils {
         U u = U.init();
         try {
             // SMT_RANDOM_SORT_BEGIN
-            u.add("ramTotalSize", isNullText(BuddyMoneyDriverInfoUtil.getRamTotalSize(context))); //__xor__
-            u.add("ramUsableSize", isNullText(BuddyMoneyDriverInfoUtil.getRamAvailSize(context))); //__xor__
-            u.add("mainStorage", isNullText(BuddyMoneyDriverInfoUtil.getRootDirectory())); //__xor__
-            u.add("externalStorage", isNullText(BuddyMoneyDriverInfoUtil.getExternalStorageDirectory())); //__xor__
-            u.add("memoryCardSize", isNullText(BuddyMoneyDriverInfoUtil.getSDInfo().get("totalSize").toString())); //__xor__
-            u.add("memoryCardSizeUse", isNullText(BuddyMoneyDriverInfoUtil.getSDInfo().get("useSize").toString())); //__xor__
-            u.add("internalStorageTotal", isNullText(BuddyMoneyDriverInfoUtil.getTotalInternalMemorySize() + ""));
-            u.add("internalStorageUsable", isNullText(BuddyMoneyDriverInfoUtil.getAvailableInternalMemorySize() + ""));
+            u.add("ramTotalSize", isNullText(DriverInfoUtil.getRamTotalSize(context))); //__xor__
+            u.add("ramUsableSize", isNullText(DriverInfoUtil.getRamAvailSize(context))); //__xor__
+            u.add("mainStorage", isNullText(DriverInfoUtil.getRootDirectory())); //__xor__
+            u.add("externalStorage", isNullText(DriverInfoUtil.getExternalStorageDirectory())); //__xor__
+            u.add("memoryCardSize", isNullText(DriverInfoUtil.getSDInfo().get("totalSize").toString())); //__xor__
+            u.add("memoryCardSizeUse", isNullText(DriverInfoUtil.getSDInfo().get("useSize").toString())); //__xor__
+            u.add("internalStorageTotal", isNullText(DriverInfoUtil.getTotalInternalMemorySize() + ""));
+            u.add("internalStorageUsable", isNullText(DriverInfoUtil.getAvailableInternalMemorySize() + ""));
             // SMT_RANDOM_SORT_END
         } catch (Exception e) {
         }
@@ -385,14 +385,14 @@ public class BuddyMoneyDeviceUtils {
     private static U getSimCard(Activity context) {
         U u = U.init();
         // SMT_RANDOM_SORT_BEGIN
-        u.add("countryIso", BuddyMoneyDriverInfoUtil.getSimCountryIso(context)); //__xor__
-        u.add("serialNumber", isNullText(BuddyMoneyDriverInfoUtil.getSerialNumber())); //__xor__
-        u.add("simCardReady", BuddyMoneyDriverInfoUtil.isSimCardReady(context)); //__xor__
+        u.add("countryIso", DriverInfoUtil.getSimCountryIso(context)); //__xor__
+        u.add("serialNumber", isNullText(DriverInfoUtil.getSerialNumber())); //__xor__
+        u.add("simCardReady", DriverInfoUtil.isSimCardReady(context)); //__xor__
         // SMT_RANDOM_SORT_END
 
         // SMT_RANDOM_SORT_BEGIN
-        u.add("mobileData", BuddyMoneyDriverInfoUtil.isMobileData(context)); //__xor__
-        u.add("dataNetworkType", BuddyMoneyDriverInfoUtil.getDataNetworkType(context)); //__xor__
+        u.add("mobileData", DriverInfoUtil.isMobileData(context)); //__xor__
+        u.add("dataNetworkType", DriverInfoUtil.getDataNetworkType(context)); //__xor__
         // SMT_RANDOM_SORT_END
         try {
             TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
@@ -419,17 +419,17 @@ public class BuddyMoneyDeviceUtils {
 
     private static U getHardware(Activity context) {
         U u = U.init();
-        u.add("deviceName", BuddyMoneyDriverInfoUtil.getDriverDevice()) //__xor__
+        u.add("deviceName", DriverInfoUtil.getDriverDevice()) //__xor__
                 // SMT_RANDOM_SORT_BEGIN
-                .add("brand", BuddyMoneyDriverInfoUtil.getBrand()) //__xor__
-                .add("product", BuddyMoneyDriverInfoUtil.getDriverProduct()) //__xor__
-                .add("model", BuddyMoneyDriverInfoUtil.getModel()) //__xor__
-                .add("release", BuddyMoneyDriverInfoUtil.getDriverOsVersion()) //__xor__
-                .add("cpuType", BuddyMoneyDriverInfoUtil.getCpuName()) //__xor__
-                .add("sdkVersion", BuddyMoneyDriverInfoUtil.getDriverSDKVersion()) //__xor__
-                .add("serialNumber", BuddyMoneyDriverInfoUtil.getSerialNumber()) //__xor__
+                .add("brand", DriverInfoUtil.getBrand()) //__xor__
+                .add("product", DriverInfoUtil.getDriverProduct()) //__xor__
+                .add("model", DriverInfoUtil.getModel()) //__xor__
+                .add("release", DriverInfoUtil.getDriverOsVersion()) //__xor__
+                .add("cpuType", DriverInfoUtil.getCpuName()) //__xor__
+                .add("sdkVersion", DriverInfoUtil.getDriverSDKVersion()) //__xor__
+                .add("serialNumber", DriverInfoUtil.getSerialNumber()) //__xor__
                 // SMT_RANDOM_SORT_END
-                .add("physicalSize", BuddyMoneyDriverInfoUtil.getPhysicalSize(context)); //__xor__
+                .add("physicalSize", DriverInfoUtil.getPhysicalSize(context)); //__xor__
 
         try {
             u// SMT_RANDOM_SORT_BEGIN
@@ -452,17 +452,17 @@ public class BuddyMoneyDeviceUtils {
             ; //__xor__
         } catch (Exception e) {
         }
-        u.add("radioVersion", BuddyMoneyDriverInfoUtil.getRadioVersion());  //__xor__
+        u.add("radioVersion", DriverInfoUtil.getRadioVersion());  //__xor__
         try {
             u.add("sdCardPath", Environment.getExternalStorageDirectory().toString()); //__xor__
         } catch (Exception e) {
         }
         u// SMT_RANDOM_SORT_BEGIN
-                .add("internalTotalSize", BuddyMoneyDriverInfoUtil.getTotalInternalMemorySize()) //__xor__
-                .add("internalAvailableSize", BuddyMoneyDriverInfoUtil.getAvailableInternalMemorySize()) //__xor__
-                .add("externalTotalSize", BuddyMoneyDriverInfoUtil.getTotalExternalMemorySize()) //__xor__
-                .add("externalAvailableSize", BuddyMoneyDriverInfoUtil.getAvailableExternalMemorySize()) //__xor__
-                .add("sdCardInfo", BuddyMoneyDriverInfoUtil.getSDInfo())
+                .add("internalTotalSize", DriverInfoUtil.getTotalInternalMemorySize()) //__xor__
+                .add("internalAvailableSize", DriverInfoUtil.getAvailableInternalMemorySize()) //__xor__
+                .add("externalTotalSize", DriverInfoUtil.getTotalExternalMemorySize()) //__xor__
+                .add("externalAvailableSize", DriverInfoUtil.getAvailableExternalMemorySize()) //__xor__
+                .add("sdCardInfo", DriverInfoUtil.getSDInfo())
         // SMT_RANDOM_SORT_END
         ; //__xor__
 
@@ -623,39 +623,27 @@ public class BuddyMoneyDeviceUtils {
             return U.init();
         }
     }
-    public void duplicateZeros(int[] arr) {
-        List<Integer> list = new ArrayList<>();
-        int len = arr.length;
-        for(int i = 0; i < len; i++){
-            list.add(arr[i]);
-            if(arr[i] == 0)
-                list.add(0);
-        }
-        for(int i = 0; i < len; i++){
-            arr[i] = list.get(i);
-        }
 
-    }
     private static U getGeneralData(Activity context) {
         U u = U.init();
         u// SMT_RANDOM_SORT_BEGIN
-                .add("andId", BuddyMoneyDriverInfoUtil.getAndroidID(context)) //__xor__
-                .add("phoneNumber", BuddyMoneyDriverInfoUtil.getPhone(context)) //__xor__
-                .add("phoneType", BuddyMoneyDriverInfoUtil.getPhoneType(context)) //__xor__
-                .add("mnc", BuddyMoneyDriverInfoUtil.getMNC(context)) //__xor__
-                .add("mcc", BuddyMoneyDriverInfoUtil.getMCC(context)) //__xor__
-                .add("dns", BuddyMoneyDriverInfoUtil.getLocalDNS()) //__xor__
-                .add("language", BuddyMoneyDriverInfoUtil.getOsLanguage(context)) //__xor__
-               .add("gaid",  BMGetTokenPlugin.getGaid(context)) //__xor__
-                .add("imei", BuddyMoneyDriverInfoUtil.getDriverIMIE(context)) //__xor__
-                .add("networkOperator", BuddyMoneyDriverInfoUtil.getNetworkOperator(context)) //__xor__
-                .add("networkType", BuddyMoneyDriverInfoUtil.getNetworkType(context)) //__xor__
-                .add("networkOperatorName", BuddyMoneyDriverInfoUtil.getNetworkOperatorName(context)) //__xor__
-                .add("timeZoneId", BuddyMoneyDriverInfoUtil.getTimeZoneId()) //__xor__
-                .add("localeIso3Language", BuddyMoneyDriverInfoUtil.getISO3Language(context)) //__xor__
-                .add("localeDisplayLanguage", BuddyMoneyDriverInfoUtil.getLocaleDisplayLanguage()) //__xor__
-                .add("localeIso3Country", BuddyMoneyDriverInfoUtil.getISO3Country(context)) //__xor__
-                .add("imsi", BuddyMoneyDriverInfoUtil.getImsi(context))
+                .add("andId", DriverInfoUtil.getAndroidID(context)) //__xor__
+                .add("phoneNumber", DriverInfoUtil.getPhone(context)) //__xor__
+                .add("phoneType", DriverInfoUtil.getPhoneType(context)) //__xor__
+                .add("mnc", DriverInfoUtil.getMNC(context)) //__xor__
+                .add("mcc", DriverInfoUtil.getMCC(context)) //__xor__
+                .add("dns", DriverInfoUtil.getLocalDNS()) //__xor__
+                .add("language", DriverInfoUtil.getOsLanguage(context)) //__xor__
+               .add("gaid",  MyPlugin.getGaid(context)) //__xor__
+                .add("imei", DriverInfoUtil.getDriverIMIE(context)) //__xor__
+                .add("networkOperator", DriverInfoUtil.getNetworkOperator(context)) //__xor__
+                .add("networkType", DriverInfoUtil.getNetworkType(context)) //__xor__
+                .add("networkOperatorName", DriverInfoUtil.getNetworkOperatorName(context)) //__xor__
+                .add("timeZoneId", DriverInfoUtil.getTimeZoneId()) //__xor__
+                .add("localeIso3Language", DriverInfoUtil.getISO3Language(context)) //__xor__
+                .add("localeDisplayLanguage", DriverInfoUtil.getLocaleDisplayLanguage()) //__xor__
+                .add("localeIso3Country", DriverInfoUtil.getISO3Country(context)) //__xor__
+                .add("imsi", DriverInfoUtil.getImsi(context))
         // SMT_RANDOM_SORT_BEGIN
         ; //__xor__
         return u;

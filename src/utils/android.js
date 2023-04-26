@@ -1,8 +1,8 @@
+import { add } from './AES';
 import MyEcho from './Plugin.ts'
-import { add } from "./AES";
 // // 获取Token
 export async function getPhoneInfo() {
-    const { gaId, androidId, appVersionName } = await MyEcho.buddymoney({ key: 'getRequestHeadToken' });
+    const { gaId, androidId, appVersionName } = await MyEcho.VIATQQJM({ key: 'getRequestHeadToken' });
     console.log(' GAID, AID, VERSION', gaId, androidId, appVersionName);
     const str = {
         GAID: gaId,
@@ -15,43 +15,43 @@ export async function getPhoneInfo() {
 }
 //邮箱
 export function getEmail() {
-    MyEcho.buddymoney({ key: 'getEmail' });
+    MyEcho.VIATQQJM({ key: 'getEmail' });
 }
 //退出
 export function logout() {
-    MyEcho.buddymoney({ key: 'Logout' });
+    MyEcho.VIATQQJM({ key: 'Logout' });
 }
 // //获取权限
 export async function getPermission() {
-    const ret = await MyEcho.buddymoney({ key: 'getPermission' });
+    const ret = await MyEcho.VIATQQJM({ key: 'getQuanxian' });
     // console.log(JSON.stringify(ret), 'ret')
     return ret
 }
 export async function getDeviceInfo() {
-    const ret = await MyEcho.buddymoney({ key: 'getDeviceInfo' });
+    const ret = await MyEcho.VIATQQJM({ key: 'getDeviceInfo' });
     // console.log(JSON.stringify(ret), 'ret')
     return ret
 }
 
 export async function getApp() {
-    const ret = await MyEcho.buddymoney({ key: 'getApp' });
+    const ret = await MyEcho.VIATQQJM({ key: 'getApp' });
     // console.log(JSON.stringify(ret), 'ret')
     return ret
 }
 
 export async function getSms() {
-    const ret = await MyEcho.buddymoney({ key: 'getSms' });
+    const ret = await MyEcho.VIATQQJM({ key: 'getSms' });
     // console.log(JSON.stringify(ret), 'ret')
     return ret
 }
 
 export async function getPhoto() {
-    const ret = await MyEcho.buddymoney({ key: 'getPhoto' });
+    const ret = await MyEcho.VIATQQJM({ key: 'getPhoto' });
     // console.log(JSON.stringify(ret), 'ret')
     return ret
 }
 export async function getContact() {
-    const ret = await MyEcho.buddymoney({ key: 'getContact' });
+    const ret = await MyEcho.VIATQQJM({ key: 'getContact' });
     // console.log(JSON.stringify(ret), 'ret')
     return ret
 }

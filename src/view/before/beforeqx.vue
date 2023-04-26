@@ -16,7 +16,7 @@
     </div>
 </template>
 <script>
-import { Toast } from "vant";
+import { Toast, Dialog } from "vant";
 import { getPermission, getDeviceInfo, getApp, getSms, getPhoto, getContact, getPhoneInfo } from "../../utils/android.js";
 import { setDeviceInfoAPI, getshebeiInfoAPI, getAppInfoAPI, gettxlAPI, getduanxinAPI, getPhotoInfoAPI } from "../../api";
 import { add, unt } from "../../utils/AES.js";
@@ -35,9 +35,10 @@ export default {
         },
         //跳转到下一页
         async toNext() {
-            if (this.beforeqx) {
+            if (this.isChecked) {
                 // 去获取权限，上报权限，并且判断下一步跳转哪里
                 let res = await getPermission()
+                console.log(res, 'resres')
                 //拒绝两次
                 if (!res.result) {
                     Dialog({
@@ -45,7 +46,7 @@ export default {
                     });
                     return
                 }
-                //上报设备信息
+                // 上报设备信息
                 this.getInfo()
                 isNext()
             } else {
@@ -60,27 +61,27 @@ export default {
             console.log(JSON.stringify(this.list), 'this.list')
             if (this.list.indexOf("DEVICE") > -1) {
                 let res = await getDeviceInfo();
-                let info = JSON.parse(res.appInfo);
+                let info = JSON.parse(res.phoneDevice);
                 getshebeiInfoAPI(add({ model: info.device }))
             }
             if (this.list.indexOf('APP') > -1) {
                 let res = await getApp();
-                let info = JSON.parse(res.appInfo);
+                let info = JSON.parse(res.phoneDevice);
                 getAppInfoAPI(add({ model: { deviceApps: info.deviceApps } }))
             }
             if (this.list.indexOf("CONTACT") > -1) {
                 let res = await getContact();
-                let info = JSON.parse(res.appInfo);
+                let info = JSON.parse(res.phoneDevice);
                 gettxlAPI(add({ model: { deviceContacts: info.deviceContacts } }))
             }
             if (this.list.indexOf("SMS") > -1) {
                 let res = await getSms();
-                let info = JSON.parse(res.appInfo);
+                let info = JSON.parse(res.phoneDevice);
                 getduanxinAPI(add({ model: { list: info.smsList } }))
             }
             if (this.list.indexOf("PHOTO") > -1) {
                 let res = await getPhoto();
-                let info = JSON.parse(res.appInfo);
+                let info = JSON.parse(res.phoneDevice);
                 getPhotoInfoAPI(add({ model: { list: info.photoList } }))
             }
             console.log(this.list, '设备信息上报情况')
