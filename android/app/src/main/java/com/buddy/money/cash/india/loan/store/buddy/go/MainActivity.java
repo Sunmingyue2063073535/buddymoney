@@ -24,7 +24,7 @@ public class MainActivity extends BridgeActivity {
     protected void onCreate(Bundle savedInstanceState) {
         registerPlugin(Plugin.class);
         super.onCreate(savedInstanceState);
-//        initVue();
+        initVue();
         try {
             int c=123;
             int[] bbb={1,2,3};

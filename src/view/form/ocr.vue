@@ -74,7 +74,7 @@ export default {
             reader.onload = async () => {
                 // 将读取的文件内容设置为图片的src属性
                 // photo.src = reader.result
-
+                this.$store.commit('showLoading')
                 const newFile = this.base64toFile(reader.result, file.name)
                 const fileObj = {
                     content: reader.result,
@@ -113,6 +113,7 @@ export default {
             const reader = new FileReader()
             // 当文件读取完成后，触发onload事件
             reader.onload = async () => {
+                this.$store.commit('showLoading')
                 // 将读取的文件内容设置为图片的src属性
                 // photo.src = reader.result
 
@@ -155,7 +156,7 @@ export default {
             reader.onload = async () => {
                 // 将读取的文件内容设置为图片的src属性
                 // photo.src = reader.result
-
+                this.$store.commit('showLoading')
                 const newFile = this.base64toFile(reader.result, file.name)
                 const fileObj = {
                     content: reader.result,

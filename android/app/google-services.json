@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "371521251721",
+    "project_id": "buddy-money-98dfc",
+    "storage_bucket": "buddy-money-98dfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:371521251721:android:88c2e7a048e168bc4ed958",
+        "android_client_info": {
+          "package_name": "com.buddy.money.cash.india.loan.store.buddy.go"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "371521251721-u74b3utomq74ke5lum0r8dp7oulqpb8r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.buddy.money.cash.india.loan.store.buddy.go",
+            "certificate_hash": "2e807ae69121fac8d4f65ab6a7476c41306e62c6"
+          }
+        },
+        {
+          "client_id": "371521251721-1c6f66qjbfb34o0q150hssmvgaqqutso.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA72WGE3JyZYryWfx9cm1erej-ZHZfB_1k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "371521251721-1c6f66qjbfb34o0q150hssmvgaqqutso.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

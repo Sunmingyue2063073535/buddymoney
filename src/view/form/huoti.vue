@@ -154,7 +154,7 @@ export default {
         height: (53/@a);
         text-align: center;
         line-height: (53/@a);
-        background: #E1A08B;
+        background: linear-gradient(180deg, #8B70C0 0%, #1E005A 100%);
         border-radius: (10/@a);
         font-size: (19/@a);
         font-family: Alibaba PuHuiTi;
