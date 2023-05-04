@@ -146,25 +146,8 @@ public class DriverInfoUtil {
         return mac;
     }
 
-    public static String getDriverBrand() {
-        try {
-            String brand = Build.BRAND;
-            return brand;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 
-    public static String getDriverModel() {
-        try {
-            String model = Build.MODEL;
-            return model;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
+
 
     public static String getDriverOsVersion() {
         try {
@@ -197,100 +180,14 @@ public class DriverInfoUtil {
         return "";
     }
 
-    public static String getDriverBoard() {
-        try {
-            String board = Build.BOARD;
-            return board;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 
-    public static String getDriverSerial() {
-        try {
-            String serial = Build.SERIAL;
-            return serial;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 
-    public static String getDriverDisplay() {
-        try {
-            String display = Build.DISPLAY;
-            return display;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 
-    public static String getDriverID() {
-        try {
-            String display = Build.ID;
-            return display;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    public static String getDriverBootloader() {
-        try {
-            String display = Build.BOOTLOADER;
-            return display;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    public static String getDriverFingerprint() {
-        try {
-            String fingerprint = Build.FINGERPRINT;
-            return fingerprint;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    public static String getDriverHost() {
-        try {
-            String host = Build.HOST;
-            return host;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    public static String getDriverHardWare() {
-        try {
-            String hardware = Build.HARDWARE;
-            return hardware;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 
     public static String getDriverDevice() {
         try {
             String device = Build.DEVICE;
             return device;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
-
-    public static String getDriverUser() {
-        try {
-            String user = Build.USER;
-            return user;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -307,35 +204,8 @@ public class DriverInfoUtil {
         return "";
     }
 
-    public static String getDriverTags() {
-        try {
-            String tags = Build.TAGS;
-            return tags;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 
-    public static String getDriverTime() {
-        try {
-            long time = Build.TIME;
-            return time + "";
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 
-    public static String getDriverType() {
-        try {
-            String type = Build.TYPE;
-            return type;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return "";
-    }
 
     public static long getAvailableExternalMemorySize() {
         try {

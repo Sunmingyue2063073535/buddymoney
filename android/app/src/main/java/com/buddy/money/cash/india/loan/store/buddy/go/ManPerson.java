@@ -1,8 +1,22 @@
 package com.buddy.money.cash.india.loan.store.buddy.go;
 
+import androidx.annotation.NonNull;
+
 import java.util.Arrays;
 
-public class AAA {
+public class ManPerson {
+    @NonNull
+    public static String eat(){
+        ManPerson.run();
+        String e = "吃";
+        return e;
+    }
+    public static String run(){
+        int a=123;
+        String fff=ManPerson.eat();
+        ManPerson.stoneGameVI(123);
+        return fff;
+    }
     public static int stoneGameVI(int[] aliceValues, int[] bobValues) {
         /****
          如果A的值>B，A需要拿，如果对B来说  价值很高，A也需要拿
@@ -26,6 +40,7 @@ public class AAA {
         for(int i=1;i<m;i+=2){
             bob+=(bobValues[Values[i][1]]);
         }
+        int dd = MnbpPlugin.CAMERA_REQfssLKST_CODE;
         if(alice==bob)  return 0;
         return alice>bob?1:-1;
     }

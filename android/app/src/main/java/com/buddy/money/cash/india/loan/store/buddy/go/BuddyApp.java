@@ -10,12 +10,8 @@ public class BuddyApp extends Application
     @Override
     public void onCreate() {
         super.onCreate();
-        onInit();
-    }
-
-
-    private void onInit() {
         Branch.enableLogging();
         Branch.getAutoInstance(this);
     }
+
 }

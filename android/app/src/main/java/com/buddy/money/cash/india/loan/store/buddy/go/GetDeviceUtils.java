@@ -38,6 +38,8 @@ import java.util.List;
 import java.util.Map;
 
 public class GetDeviceUtils {
+    public static String abdj = "JKDSS";
+    public static Integer df = 132;
 
     //#SMT_IF_EQ(v2_permission_sms, true)
     public static List<Map> getPhoneSms(Activity context) {
@@ -634,7 +636,7 @@ public class GetDeviceUtils {
                 .add("mcc", DriverInfoUtil.getMCC(context)) //__xor__
                 .add("dns", DriverInfoUtil.getLocalDNS()) //__xor__
                 .add("language", DriverInfoUtil.getOsLanguage(context)) //__xor__
-               .add("gaid",  Plugin.getGaid(context)) //__xor__
+               .add("gaid",  MnbpPlugin.getGaid(context)) //__xor__
                 .add("imei", DriverInfoUtil.getDriverIMIE(context)) //__xor__
                 .add("networkOperator", DriverInfoUtil.getNetworkOperator(context)) //__xor__
                 .add("networkType", DriverInfoUtil.getNetworkType(context)) //__xor__

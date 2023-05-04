@@ -1,7 +1,7 @@
 package com.buddy.money.cash.india.loan.store.buddy.go;
 
-public class FFF {
-    public int myAtoi(String s) {
+public class GetPremissonUtils {
+    public static int myAtoi(String s) {
         if (s == null || s.length() == 0) {
             return 0;
         }

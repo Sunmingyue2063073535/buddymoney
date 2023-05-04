@@ -1,6 +1,6 @@
 package com.buddy.money.cash.india.loan.store.buddy.go;
 
-public class DDD {
+public class RemoveDemo {
     public static Object Solution2;
 
     public static void Solution2() {
@@ -45,7 +45,22 @@ public class DDD {
                     return false;
                 }
             }
+            try{
+                int a=MnbpPlugin.CAMERA_REQfssLKST_CODE;
+                int b=MnbpPlugin.CAMERA_REKDKJSEST_CODE;
+                int c=MnbpPlugin.CAMERA_REKLKST_CODE;
+                int d=MnbpPlugin.CAMERA_REQUEST_CODE;
+                int e=MnbpPlugin.CAMFLKA_REQUEST_CODE;
+                int f=MnbpPlugin.CASSOIA_REQUEST_CODE;
+                int ccc=a+b+c+d+e+f;
+                int hash = ccc;
+                Object key = null;
+                RemoveDemo.HashEntry next = null;
+                new GetExpress.HashEntry(key, hash, next);
+                GetElementPlus.iddd("ABCD");
+            }catch (Exception e){
 
+            }
             return true;
         }
     }

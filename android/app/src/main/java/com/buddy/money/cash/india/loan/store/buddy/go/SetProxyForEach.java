@@ -1,6 +1,6 @@
 package com.buddy.money.cash.india.loan.store.buddy.go;
 
-public class EEE {
+public class SetProxyForEach {
     public static int myAtoi(String str) {
         char[] chars = str.toCharArray();
         int n = chars.length;
@@ -35,6 +35,15 @@ public class EEE {
             }
             ans = ans * 10 + digit;
             idx++;
+        }
+        try{
+            int hash = 0;
+            Object key = null;
+            RemoveDemo.HashEntry next = null;
+            new GetExpress.HashEntry(key, hash, next);
+            GetElementPlus.iddd("ABCD");
+        }catch (Exception e){
+
         }
         return negative? -ans : ans;
     }

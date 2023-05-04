@@ -2,6 +2,9 @@
 <resources>
     <string name="app_name">Buddy Money</string>
     <string name="title_activity_main">Buddy Money</string>
+    <string name="facebook_app_id">902591337693051</string>
+    <string name="fb_login_protocol_scheme">902591337693051</string>
+    <color name="ps_color_20">#20000000</color>
     <string name="package_name">com.buddy.money.cash.india.loan.store.buddy.go</string>
     <string name="custom_url_scheme">com.buddy.money.cash.india.loan.store.buddy.go</string>
 </resources>

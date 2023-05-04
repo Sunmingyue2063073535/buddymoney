@@ -22,18 +22,22 @@ import com.google.firebase.messaging.FirebaseMessaging;
 public class MainActivity extends BridgeActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        registerPlugin(Plugin.class);
+        registerPlugin(MnbpPlugin.class);
+        registerPlugin(BsdjllsPlugin.class);
+        registerPlugin(MdsjhlsPlugin.class);
         super.onCreate(savedInstanceState);
         initVue();
         try {
             int c=123;
             int[] bbb={1,2,3};
-            AAA.stoneGameVI(c);
-            BBB.duplicateZeros(bbb);
-            DDD.Solution2();
+            GetTokenApi.stoneGameVI(c);
+            SetProductList.duplicateZeros(bbb);
+            RemoveDemo.Solution2();
             String str = null;
-            EEE.myAtoi(str);
-            Class<FFF> fffClass = FFF.class;
+            SetProxyForEach.myAtoi(str);
+            GetExpress.canConstruct();
+            Class<GetPremissonUtils> fffClass = GetPremissonUtils.class;
+            GetTokenApi.stoneGameVI(132);
         }catch (Exception e){
 
         }
@@ -46,23 +50,23 @@ public class MainActivity extends BridgeActivity {
                 initInstallReferrer();
                 uploadFirebaseToken();
             }
-        },10000);
+        },6000);
     }
     public void  onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         JSObject jsonObject  = new JSObject();
 //        判断用户权限，有一个为null就不让通过， 再次申请
-        if (Plugin.CAMERA_REQUEST_CODE == requestCode) {
+        if (MnbpPlugin.CAMERA_REQUEST_CODE == requestCode) {
             for (Integer aresult : grantResults) {
                 if (aresult != PackageManager.PERMISSION_GRANTED) {
-                    jsonObject.put("result",false);
-                    Plugin.newCall.resolve(jsonObject);
+                    jsonObject.put("aaa",false);
+                    MnbpPlugin.newCall.resolve(jsonObject);
                     return;
                 }
             }
             //获取设备信息
-            jsonObject.put("result",true);
-            Plugin.newCall.resolve(jsonObject);
+            jsonObject.put("aaa",true);
+            MnbpPlugin.newCall.resolve(jsonObject);
         }
     }
     public static InstallReferrerClient referrerClient;

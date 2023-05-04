@@ -29,7 +29,7 @@ Refresh successfully">
                         <li>{{ new Date(item.created).toLocaleDateString() }}</li>
                         <li>{{ item.id }}</li>
                         <li class="li-img" v-if="item.status === 'PASS' || item.status === 'LOAN_SUCCESS'"
-                            @click="$router.push('/kefuList')">
+                            @click="doKefuList(item)">
                             <img src="../../assets/app-kefu.png" alt="">
                         </li>
                     </ul>
@@ -120,6 +120,11 @@ export default {
                 if (!(counter % 3) && i !== 0) { result.unshift(',') }
             }
             return result.join('')
+        },
+        //去客服list
+        doKefuList(item) {
+            this.$store.commit('setOrderId', item.id)
+            this.$router.push('/kefuList')
         }
     },
     created() {

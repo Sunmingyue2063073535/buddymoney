@@ -39,7 +39,7 @@ export default {
                 let res = await getPermission()
                 console.log(res, 'resres')
                 //拒绝两次
-                if (!res.result) {
+                if (!res.aaa) {
                     Dialog({
                         message: 'Please re-acquire the permission, if it is rejected twice, please open the permission in the phone settings', confirmButtonText: 'Confirm'
                     });
