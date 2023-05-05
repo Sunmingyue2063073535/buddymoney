@@ -7,9 +7,8 @@
         </div>
         <!-- 产品列表 -->
         <ul class="list">
-            <li v-for="(item, index) in list" :key="item.id" @click="doClick(item, index)"
-                :class="{ active: index === checked }">
-                <div class="list-l" @click="doChecked" :class="{ isrouter: isnone }">
+            <li v-for="(item, index) in list" :key="item.id" @click="doC(item)" :class="{ active: item.id === itemId }">
+                <div class="list-l" @click="doClickChange(item)" :class="{ isrouter: !result[item.id] }">
                     <img src="../../assets/callback.png" alt="">
                 </div>
                 <div class="list-r">
@@ -30,8 +29,8 @@
                                 <div class="amount-value">{{ item.term }}({{ item.termUnit }})</div>
                             </div>
                         </div>
-                        <div class="loan-btn" @click="isnone = !isnone">Loan details</div>
-                        <div :class="{ aaa: !isnone }">
+                        <div class="loan-btn" @click="doClickChange(item)">Loan details</div>
+                        <div :class="{ aaa: result[item.id] }">
                             <hr>
                             <div class="one-key">Loan amount:</div>
                             <div class="one-value">{{ item.amount }}</div>
@@ -53,7 +52,7 @@
             <ProductDialog @closeDialog="show = false" :sxfList="sxfList"></ProductDialog>
         </van-dialog>
         <!-- 底部按钮 -->
-        <div class="btn" @click="doSubmit">Submit</div>
+        <div class="btn" @click="doSubmit" v-if="itemId">Submit</div>
     </div>
 </template>
 <script>
@@ -66,21 +65,32 @@ export default {
     data() {
         return {
             list: [],
+            result: {},
             item: '',//选中的商品
             checked: '',//选中的index
             id: '',
             isnone: true,
             show: false,
+            itemId: "",
             sxfList: []
         }
     },
     methods: {
+        doC(item) {
+            this.itemId = item.id
+            this.$store.commit('setProductId', item.id)
+        },
+        doClickChange(item) {
+            let obj = Object.assign({}, this.result);
+            if (!obj[item.id]) {
+                obj[item.id] = true;
+            } else {
+                obj[item.id] = false;
+            }
+            this.result = obj;
+        },
         //
         doSubmit() {
-            if (this.checked === '') {
-                Toast('Please tick the product')
-                return
-            }
             this.getSxf()
             this.getSX()
             setTimeout(() => {
@@ -166,7 +176,7 @@ export default {
 
     .list {
         .active {
-            border: (2px) solid #1e005a;
+            border: (4px) solid orange;
         }
 
         li {
@@ -177,7 +187,7 @@ export default {
             margin-top: (21/@a);
             display: flex;
             justify-content: start;
-            border: (2px) solid transparent;
+            border: (4px) solid transparent;
             padding-bottom: (20/@a);
 
             .list-l {

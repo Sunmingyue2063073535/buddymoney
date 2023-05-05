@@ -1,5 +1,8 @@
 <template>
     <div class="login">
+        <div class="callback" @click="$router.back()">
+            <img src="../../assets/callback.png" alt="">
+        </div>
         <div class="login-img">
             <img src="../../assets/login.png" alt="">
         </div>
@@ -8,6 +11,12 @@
         </div>
         <div class="djs" v-else>
             {{ num }} s
+        </div>
+        <div class="lock">
+            <img src="../../assets/login-lock.png" alt="">
+        </div>
+        <div class="phone-icon">
+            <img src="../../assets/login-phone.png" alt="">
         </div>
         <van-form class="form">
             <van-field class="phone" type="tel" v-model="phone" name="用户名" placeholder="Phone number"
@@ -85,8 +94,47 @@ export default {
 </script>
 <style lang="less" scoped>
 .login {
+    position: relative;
     width: 100vw;
     min-height: (667/@a);
+
+    .callback {
+        position: fixed;
+        top: (20/@a);
+        left: (20/@a);
+        z-index: 9999;
+        width: (25/@a);
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .lock {
+        position: absolute;
+        top: (345/@a);
+        left: (10/@a);
+        z-index: 999;
+        width: (20/@a);
+        height: (20/@a);
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .phone-icon {
+        position: absolute;
+        top: (265/@a);
+        left: (13/@a);
+        z-index: 999;
+        width: (15/@a);
+        height: (15/@a);
+
+        img {
+            width: 100%;
+        }
+    }
 
     .login-img {
         width: 100vw;
@@ -101,7 +149,7 @@ export default {
     .djs {
         position: absolute;
         z-index: 1;
-        top: (265/@a);
+        top: (345/@a);
         right: (30/@a);
         color: #2e1069;
         font-size: (20/@a);
@@ -109,7 +157,7 @@ export default {
 
     .otp {
         position: absolute;
-        top: (255/@a);
+        top: (337/@a);
         right: (10/@a);
         width: (105/@a);
         height: (47/@a);
@@ -142,6 +190,7 @@ export default {
         }
 
         .phone {
+            padding-left: (40/@a);
             width: (359/@a);
             height: (47/@a);
             background: #F0EFEF;
@@ -150,6 +199,7 @@ export default {
         }
 
         .code {
+            padding-left: (40/@a);
             width: (359/@a);
             height: (47/@a);
             background: #F0EFEF;
