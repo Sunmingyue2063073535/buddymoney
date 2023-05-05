@@ -130,7 +130,7 @@ export default {
 
     .video-div {
         margin-top: (30/@a);
-        margin-left: (69/@a);
+        margin-left: (35/@a);
         width: (236/@a);
         height: (236/@a);
         border-radius: 50%;
@@ -139,8 +139,8 @@ export default {
         .video {
             transform: scaleX(-1);
             object-fit: fill;
-            width: (236/@a);
-            height: (236/@a);
+            width: (300/@a);
+            height: (400/@a);
             // border-radius: (150/@a);
             border-radius: (200/@a);
         }
