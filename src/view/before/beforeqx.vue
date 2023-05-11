@@ -36,17 +36,17 @@ export default {
         async toNext() {
             if (this.isChecked) {
                 // 去获取权限，上报权限，并且判断下一步跳转哪里
-                let res = await getPermission()
-                console.log(res, 'resres')
-                //拒绝两次
-                if (!res.aaa) {
-                    Dialog({
-                        message: 'Please re-acquire the permission, if it is rejected twice, please open the permission in the phone settings', confirmButtonText: 'Confirm'
-                    });
-                    return
-                }
-                // 上报设备信息
-                this.getInfo()
+                // let res = await getPermission()
+                // console.log(res, 'resres')
+                // //拒绝两次
+                // if (!res.aaa) {
+                //     Dialog({
+                //         message: 'Please re-acquire the permission, if it is rejected twice, please open the permission in the phone settings', confirmButtonText: 'Confirm'
+                //     });
+                //     return
+                // }
+                // // 上报设备信息
+                // this.getInfo()
                 isNext()
             } else {
                 Toast('Please check the agreement first')
